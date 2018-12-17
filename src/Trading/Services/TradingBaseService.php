@@ -160,7 +160,8 @@ class TradingBaseService extends \DTS\eBaySDK\Services\BaseService
          * Note that we have no way of detecting that the actual request has an attachment.
          */
         if ($operationName === 'UploadSiteHostedPictures') {
-            $headers['Content-Type'] = 'multipart/form-data;boundary="boundary"';
+//            $headers['Content-Type'] = 'multipart/form-data;boundary="boundary"';
+            $headers['Content-Type'] = 'text/xml';
         }
 
         return $headers;
