@@ -67,7 +67,19 @@ class PostOrderBaseService extends \DTS\eBaySDK\Services\BaseRestService
         $headers = [];
 
         // Add required headers first.
-        $headers[self::HDR_AUTH_TOKEN] = 'TOKEN '.$this->getConfig('authToken');
+        $token_type = $this->getConfig('token_type');
+        if ($token_type){
+            switch ($token_type){
+                case 'Auth':
+                    $headers[self::HDR_AUTH_TOKEN] = 'TOKEN '.$this->getConfig('authToken');break;
+                case 'OAuth':
+                    $headers[self::HDR_AUTH_TOKEN] = 'IAF '.$this->getConfig('authToken');break;
+                default:
+                    $headers[self::HDR_AUTH_TOKEN] = 'IAF '.$this->getConfig('authToken');break;
+            }
+        }else{
+            $headers[self::HDR_AUTH_TOKEN] = 'TOKEN '.$this->getConfig('authToken');
+        }
 
         // Add optional headers.
         if ($this->getConfig('marketplaceId')) {
