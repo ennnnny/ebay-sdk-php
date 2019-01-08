@@ -22,7 +22,7 @@ namespace DTS\eBaySDK\PostOrder\Types;
  * @property boolean $paypalPaid
  * @property \DTS\eBaySDK\PostOrder\Types\RefundAmounts $refundAmounts
  * @property \DTS\eBaySDK\PostOrder\Types\DateTime $refundDeadlineDate
- * @property \DTS\eBaySDK\PostOrder\Types\RefundType $refundType
+ * @property string $refundType
  */
 class CaseDetails extends \DTS\eBaySDK\Types\BaseType
 {
@@ -91,7 +91,7 @@ class CaseDetails extends \DTS\eBaySDK\Types\BaseType
             'elementName' => 'refundDeadlineDate'
         ],
         'refundType' => [
-            'type' => 'DTS\eBaySDK\PostOrder\Types\RefundType',
+            'type' => 'string',
             'repeatable' => false,
             'attribute' => false,
             'elementName' => 'refundType'
